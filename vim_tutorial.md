@@ -1,3 +1,5 @@
+#### [Tutorial Link](https://www.youtube.com/watch?v=IiwGbcd8S7I)
+
 ### Enter vim
 	vim FILE_NAME
 
