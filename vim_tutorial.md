@@ -1,4 +1,5 @@
 #### [Tutorial Link](https://www.youtube.com/watch?v=IiwGbcd8S7I)
+#### [Useful Blog](https://devhints.io/vim)
 
 ### Enter vim
 	vim FILE_NAME
@@ -59,7 +60,7 @@
 	t(ANY_CHAR), (To take cursor to the char before the given char and continue this search iteratibly in backward direction)
 	f(ANY_CHAR) (To take cursor to that first occurance of given specific char position)
 	f(ANY_CHAR); (To take cursor to that first occurance of given specific char position and ; to continue the search in forward direction)
-	f(ANY_CHAR), (To take cursor to that first occurance of given specific char position and ; to continue the search in backward direction)
+	F(ANY_CHAR), (To take cursor to that first occurance of given specific char position and ; to continue the search in backward direction)
 	/(ANY_STRING) (To search for the string in the file i.e similar to CTRL+F and to Find next press 'n' for foward, to 'N' to find backward)
 	% (If you are at start of opening tag of any paranthesis/squarebrace/flowerbrace/... and type % then it takes to the closing tag of that char)
 	d% (If you are at start of opening tag and type d% it will delete from opening tag to closing tag)
@@ -74,7 +75,8 @@
 	O (To add new line above to the cursor position and takes into insert mode)
 ---
 ### For Visual Mode
-	V (To Enter into visual mode and press j/k/l/h/{/} to select the region accordingly. Later you del or copy the selected region)
+	v (Enter visual mode i.e characters)	
+	V (Enter visual line mode and press j/k/l/h/{/} to select the region accordingly. Later you can apply Operators and Motions)
 ---
 ### For deleting NUM of recent changes
 	NUMdd (Will delete the NUM of times the recent changes made)
@@ -103,9 +105,13 @@
 
 ### Exit
     :w (For only saving and not quitting)
-	:wq (For write and quit)
+	:wq / :x (For write and quit)
 	:q! (For quit without saving)
+    :qa (Close all files)
+	:qa! (Close all files, abandon changes)
 	:q (For quit. If nothing is changed in a file, else either of the above)
+	ZZ 	(Save and quit)
+	ZQ 	(Quit without checking changes)
 ---
 ### Miscellenous:
 	~ (To swap the letters from capital to small, vice versa.)
@@ -211,18 +217,45 @@
 		s - sentences
 		p - paragraphs
 		t - tags
+		[ ( { <  -  A [], (), or {} block
+		' " `  - A quoted string
+		b - A block [(
+		B - A block in [{
     Motions
 		a - all
 		i - in
 		t - `til
-		f - find forward
-		F - find backward
-	Commands
-		d - delets (also cut)
-		c - change (delete, then place in insert mode)
-		y - yank (copy)
-		v - visually select
+	Operators
+		d   delets (also cut)
+		c   change (delete, then place in insert mode)
+		y   yank (copy)
+		v   visually select
+		>   Indent right
+		<   Indent left
+		=   Autoindent
+		g~  Swap case
+		gU 	Uppercase
+		gu 	Lowercase
+		! 	Filter through external program
+			
+			See :help operator
 
 {command}{text object/motion}
+---
 
+### External OS Commands in Vim
+    :!{command}  (To Execute external os commands in vim terminal)
+    :%!{command} (To Run the os command and save its output by replacing original file content in it)
+    :'<,'>!{command} (Select some words/lines with Visual mode and want to replace those lines only with command output, Use this)
+    :.!{command} (Run command and replace command to only that line which cursor is positioned)
+    :r!{command} (Run's command and appends the output to the document from current cusror position)
+---
+### Switch to File Explorer Mode
+    
+    :Vexplore (This will open file explorer in Vertical mode)
+    :Sexplore (This will open file explorer in Horizental mode)
+    :Explore (Same as Sexplore)
+        Then,
+            % (For Creating a new file)
+            d (For creating a new directory)
 
